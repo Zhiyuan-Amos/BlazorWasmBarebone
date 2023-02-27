@@ -1,19 +1,5 @@
 ﻿@page "/"
 
-<h1>Hello, world!</h1>
+<PageTitle>Sample Page</PageTitle>
 
-Loading time: @_elapsed milliseconds
-
-@code
-{
-    long _elapsed;
-
-    protected override void OnAfterRender(bool firstRender)
-    {
-        if (firstRender)
-        {
-            _elapsed = TimeStateContainer.Stop();
-            StateHasChanged();
-        }
-    }
-}
+Loading time: @_elapsed ms

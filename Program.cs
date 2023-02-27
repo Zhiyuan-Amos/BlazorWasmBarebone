@@ -1,18 +1,11 @@
-using System.Threading.Tasks;
+using BlazorWasmBarebone;
+using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 
-namespace BlazorWasmBarebone
-{
-    public class Program
-    {
-        public static async Task Main(string[] args)
-        {
-            TimeStateContainer.Start();
+TimeStateContainer.Start();
 
-            var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<App>("#app");
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
+builder.RootComponents.Add<App>("#app");
+builder.RootComponents.Add<HeadOutlet>("head::after");
 
-            await builder.Build().RunAsync();
-        }
-    }
-}
+await builder.Build().RunAsync();
